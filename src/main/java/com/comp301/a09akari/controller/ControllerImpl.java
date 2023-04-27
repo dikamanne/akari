@@ -1,13 +1,13 @@
 package com.comp301.a09akari.controller;
 
-import com.comp301.a09akari.controller.ClassicMvcController;
 import com.comp301.a09akari.model.CellType;
 import com.comp301.a09akari.model.Model;
+import com.comp301.a09akari.model.Puzzle;
 
 import java.util.Random;
 
-public class ControllerImpl implements ClassicMvcController {
-  private Model model;
+public class ControllerImpl implements AlternateMvcController {
+  private final Model model;
 
   public ControllerImpl(Model model) {
     if (model == null) {
@@ -52,8 +52,41 @@ public class ControllerImpl implements ClassicMvcController {
       model.addLamp(r, c);
     }
   }
-
-  public Model getModel() {
-    return model;
+  public  boolean isLit(int r, int c) {
+    return model.isLit(r,c);
   }
+
+  public boolean isLamp(int r, int c) {
+    return model.isLamp( r, c);
+  }
+
+  public boolean isClueSatisfied(int r, int c) {
+    return model.isClueSatisfied(r, c);
+  }
+
+  public boolean isSolved() {
+    return model.isSolved();
+
+  }
+
+  @Override
+  public Puzzle getActivePuzzle() {
+    return model.getActivePuzzle();
+  }
+
+  @Override
+  public boolean isLampIllegal(int r, int c) {
+    return model.isLampIllegal(r, c);
+  }
+
+  public int getPuzzleLibrarySize(){
+    return model.getPuzzleLibrarySize();
+  }
+
+  @Override
+  public int getActivePuzzleIndex() {
+    return model.getActivePuzzleIndex();
+  }
+
+
 }

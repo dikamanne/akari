@@ -1,5 +1,6 @@
 package com.comp301.a09akari.view;
 
+import com.comp301.a09akari.controller.AlternateMvcController;
 import com.comp301.a09akari.controller.ControllerImpl;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -7,9 +8,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 public class TitleView implements FXComponent {
-  ControllerImpl controller;
+  private final AlternateMvcController controller;
 
-  public TitleView(ControllerImpl controller) {
+  public TitleView(AlternateMvcController controller) {
     this.controller = controller;
   }
 
@@ -22,9 +23,9 @@ public class TitleView implements FXComponent {
     Label puzzleIdx =
         new Label(
             "Puzzle "
-                + (controller.getModel().getActivePuzzleIndex() + 1)
+                + (controller.getActivePuzzleIndex() + 1)
                 + " of "
-                + controller.getModel().getPuzzleLibrarySize());
+                + controller.getPuzzleLibrarySize());
     Label akariTitle = new Label("Akari");
 
     puzzleIdxBox.getChildren().add(puzzleIdx);

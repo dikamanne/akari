@@ -1,5 +1,6 @@
 package com.comp301.a09akari.view;
 
+import com.comp301.a09akari.controller.AlternateMvcController;
 import com.comp301.a09akari.controller.ControllerImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
@@ -8,9 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class ControlView implements FXComponent {
-  private ControllerImpl controller;
+  private final AlternateMvcController controller;
 
-  public ControlView(ControllerImpl controller) {
+  public ControlView(AlternateMvcController controller) {
     this.controller = controller;
   }
 
@@ -18,9 +19,9 @@ public class ControlView implements FXComponent {
   public Parent render() {
     HBox pane = new HBox();
 
-    Button prev = new Button("prev");
-    pane.getChildren().add(prev);
-    prev.setOnAction(
+    Button previous = new Button("previous");
+    pane.getChildren().add(previous);
+    previous.setOnAction(
         (ActionEvent event) -> {
           controller.clickPrevPuzzle();
         });
@@ -44,7 +45,7 @@ public class ControlView implements FXComponent {
           controller.clickRandPuzzle();
         });
 
-    if (controller.getModel().isSolved()) {
+    if (controller.isSolved()) {
       Label solved = new Label("SOLVED!!!");
       solved.getStyleClass().add("AkariTitle");
       solved.getStyleClass().add("solvedClue");

@@ -1,5 +1,6 @@
 package com.comp301.a09akari.view;
 
+import com.comp301.a09akari.controller.AlternateMvcController;
 import com.comp301.a09akari.controller.ControllerImpl;
 import com.comp301.a09akari.model.Model;
 import com.comp301.a09akari.model.ModelObserver;
@@ -9,10 +10,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class View implements FXComponent, ModelObserver {
-  private ControllerImpl controller;
+  private AlternateMvcController controller;
   private Stage stage;
 
-  public View(ControllerImpl _controller, Stage _stage) {
+  public View(AlternateMvcController _controller, Stage _stage) {
     this.controller = _controller;
     this.stage = _stage;
   }

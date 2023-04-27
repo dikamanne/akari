@@ -27,14 +27,20 @@ public class AppLauncher extends Application {
 
     View view = new View(controller, stage);
 
-    model.addObserver((view));
+
 
     Parent parent = view.render();
-    Scene scene = new Scene(parent);
+    Scene scene = new Scene(view.render(), 600, 600);
     scene.getStylesheets().add("main.css");
     stage.setScene(scene);
-    stage.sizeToScene();
 
+    model.addObserver(
+            (Model m) -> {
+              scene.setRoot(view.render());
+              stage.sizeToScene();
+            });
+    stage.setWidth(650);
+    stage.setHeight(650);
     stage.show();
   }
 }

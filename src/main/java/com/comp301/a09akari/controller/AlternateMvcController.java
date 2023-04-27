@@ -29,7 +29,15 @@ public interface AlternateMvcController {
 
   /** Returns true if the active puzzle is solved */
   boolean isSolved();
+  
+  
 
   /** Getter method for the active puzzle */
   Puzzle getActivePuzzle();
+
+  boolean isLampIllegal(int r, int c);
+
+  int getPuzzleLibrarySize();
+
+  int getActivePuzzleIndex();
 }
