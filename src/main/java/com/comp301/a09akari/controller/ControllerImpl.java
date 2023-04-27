@@ -52,12 +52,13 @@ public class ControllerImpl implements AlternateMvcController {
       model.addLamp(r, c);
     }
   }
-  public  boolean isLit(int r, int c) {
-    return model.isLit(r,c);
+
+  public boolean isLit(int r, int c) {
+    return model.isLit(r, c);
   }
 
   public boolean isLamp(int r, int c) {
-    return model.isLamp( r, c);
+    return model.isLamp(r, c);
   }
 
   public boolean isClueSatisfied(int r, int c) {
@@ -66,7 +67,6 @@ public class ControllerImpl implements AlternateMvcController {
 
   public boolean isSolved() {
     return model.isSolved();
-
   }
 
   @Override
@@ -79,7 +79,7 @@ public class ControllerImpl implements AlternateMvcController {
     return model.isLampIllegal(r, c);
   }
 
-  public int getPuzzleLibrarySize(){
+  public int getPuzzleLibrarySize() {
     return model.getPuzzleLibrarySize();
   }
 
@@ -87,6 +87,4 @@ public class ControllerImpl implements AlternateMvcController {
   public int getActivePuzzleIndex() {
     return model.getActivePuzzleIndex();
   }
-
-
 }

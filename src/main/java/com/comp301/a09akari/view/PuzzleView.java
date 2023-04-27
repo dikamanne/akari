@@ -47,9 +47,9 @@ public class PuzzleView implements FXComponent {
           int finalR = r;
           int finalC = c;
           button.setOnMousePressed(
-                  (MouseEvent event) -> {
-                    controller.clickCell(finalR, finalC);
-                  });
+              (MouseEvent event) -> {
+                controller.clickCell(finalR, finalC);
+              });
           Rectangle block = new Rectangle(50, 50);
           block.setFill(Color.WHITE);
           block.setStroke(Color.BLACK);
@@ -60,9 +60,7 @@ public class PuzzleView implements FXComponent {
               block.setFill(Color.YELLOW);
               circle.setFill(Color.RED);
             } else {
-              image.setImage(
-                      new Image(
-                              "light-bulb.png"));
+              image.setImage(new Image("light-bulb.png"));
               block.setFill(Color.YELLOW);
               circle.setFill(Color.BLACK);
             }
@@ -146,12 +144,4 @@ public class PuzzleView implements FXComponent {
     stackPane.setAlignment(board, Pos.CENTER);
     return stackPane;
   }
-  }
-
-
-
-
-
-
-
-
+}
